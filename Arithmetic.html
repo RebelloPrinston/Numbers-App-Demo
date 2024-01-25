@@ -7,11 +7,12 @@
     </head>
     <body>
         <script>
-            function getSum(){
+            async function getSum(){
                 let num1 = parseInt(document.getElementById("num1").value);
                 let num2 = parseInt(document.getElementById("num2").value);
-                let sum = num1 + num2;
-                document.getElementById("sum").innerHTML = sum;
+                const response = await fetch('http://localhost:3000/add/' + num1 + '/' + num2);
+                const sum = await response.json();
+                document.getElementById("sum").innerHTML = sum;    
             }
         </script>
         <section>
