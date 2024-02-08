@@ -10,7 +10,7 @@
             async function getSum(){
                 let num1 = parseInt(document.getElementById("num1").value);
                 let num2 = parseInt(document.getElementById("num2").value);
-                const response = await fetch('http://localhost:3000/add/' + num1 + '/' + num2);
+                const response = await fetch('https://arithmetic-service-prebello-onrender-com.onrender.com//add/' + num1 + '/' + num2);
                 const sum = await response.json();
                 document.getElementById("sum").innerHTML = sum;    
             }
