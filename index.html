@@ -45,8 +45,6 @@
                 <h2>Caesar Cipher</h2>                
                 <label>Text:</label>
                 <input id="text"/>
-                <label>Shift:</label>
-                <input id="shift"/>
                 <button onclick="cipherText()">Cipher</button>
                 <label id="cipheredText"></label>  
             </section>           
@@ -75,13 +73,11 @@
 
         async function cipherText() {
             const textToCipher = document.getElementById("text");   
-            const shiftVal = document.getElementById("shift")         
             let n = textToCipher.value;      
-            let m = shiftVal.value;      
-            let response = await fetch("https://ciphers-service-latest-jemk.onrender.com/ciphers/caesar/" + n + "/" + m);
+            let response = await fetch("https://ciphers-service-latest-jemk.onrender.com/ciphers/caesar/" + n + "/3");
             console.log(response)
             let result = await response.json();
-            document.getElementById("cipheredText").innerText = result;
+            document.getElementById("cipheredText").innerText = result["cipher"];
         }
     </script>
 </body>
